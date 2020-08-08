@@ -4,7 +4,10 @@ import { Header } from 'react-native-elements';
 
 const TextInputBox = (props) => {
     return (
-      <TextInput {...props}/>
+      <TextInput {...props} 
+      editable
+      maxLength={40}
+      />
     );
   }
 
@@ -12,15 +15,12 @@ export default class WriteStoryScreen extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <View>
-                    <Header
-                        backgroundColor={'00b8a9'}
-                        centerComponent={{
-                            text: 'Story Hub',
-                            style: { color: '#f8f3d4', fontSize: 20 }
-                        }}
-                    />
-                </View>
+                <Header
+                    centerComponent={{
+                        text: 'Story Hub',
+                        style: { color: '#000000', fontSize: 30, fontWeight: "bold" },
+                    }}
+                />
 
                 <View style={styles.inputView}>
                      <TextInput style={styles.inputBox} placeholder="Title of the story"/>   
@@ -36,7 +36,7 @@ export default class WriteStoryScreen extends React.Component{
 
                 <View style={styles.container}>
                     <TouchableOpacity style={styles.button}>
-                        <Text style={style.buttonText}>SUBMIT</Text>
+                        <Text style={styles.buttonText}>SUBMIT</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -48,8 +48,7 @@ const styles = StyleSheet.create({
     container:{
         flex:1, 
         justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#ffde7d',
+        alignItems:'center'
     },
     inputView:{
         flexDirection:"row",
@@ -77,7 +76,6 @@ const styles = StyleSheet.create({
         alignSelf:"center"
     },
     buttonText:{
-        color:'#f8f3d4',
         fontSize:30,
         fontWeight:"bold"
     }
